@@ -4,6 +4,8 @@ import coord
 import jega
 import fictive
 import Dominance
+import equiprobability
+import forbidden
 
 per = gen_per.bbs_shuffle_v6()
 
@@ -36,7 +38,7 @@ print("Полином Жегалкина для s₁(x):", jega.build_zhegalkin_
 print("Полином Жегалкина для s₂(x):", jega.build_zhegalkin_polynomial(s2))
 print(' ')
 
-
+print(s0)
 
 print("Фиктивные переменные для s₀(x):", fictive.find_fictive_variables(jega.zhegalkin_coefficients(s0)))
 print("Фиктивные переменные для s₁(x):", fictive.find_fictive_variables(jega.zhegalkin_coefficients(s1)))
@@ -48,3 +50,13 @@ print(' ')
 print(f'Преобладание нулей над единицами: {Dominance.calculate_dominance(s0)['dominance']}')
 print(f'Преобладание нулей над единицами: {Dominance.calculate_dominance(s1)['dominance']}')
 print(f'Преобладание нулей над единицами: {Dominance.calculate_dominance(s2)['dominance']}')
+print(' ')
+
+print(f'Функция {equiprobability.is_strongly_balanced(s0)}')
+print(f'Функция {equiprobability.is_strongly_balanced(s1)}')
+print(f'Функция {equiprobability.is_strongly_balanced(s2)}')
+print(' ')
+
+print(f'{forbidden.check_forbidden_sequences(s0)}')
+print(f'{forbidden.check_forbidden_sequences(s1)}')
+print(f'{forbidden.check_forbidden_sequences(s2)}')
